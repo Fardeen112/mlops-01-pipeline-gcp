@@ -1,11 +1,14 @@
 steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['cp', '/pipeline1.py', '/workspace/']
+
 - name: 'python:3.9'
   entrypoint: pip
   args: ['install', '-r', 'requirements.txt']
 
 - name: 'python:3.9'
   entrypoint: python
-  args: ['pipeline.py']
+  args: ['pipeline1.py']
   env:
     - 'PROJECT_ID=involuted-tuner-441406-a9'
     - 'LOCATION=us-central1'
@@ -13,7 +16,7 @@ steps:
     - 'GOOGLE_CLOUD_PROJECT=involuted-tuner-441406-a9'
 
 substitutions:
-  _PYTHON_FILE: pipeline1.py
+  _PYTHON_FILE: pipeline.py
 
 options:
   logging: CLOUD_LOGGING_ONLY
