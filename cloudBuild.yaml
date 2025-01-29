@@ -28,5 +28,7 @@ steps:
     id: 'Run Pipeline'
     entrypoint: 'python'
     args: ['pipeline1.py']
-
-timeout: '600s'  # Adjust based on your pipeline's execution time
+    
+options:
+  logging: CLOUD_LOGGING_ONLY
+# timeout: '600s'  # Adjust based on your pipeline's execution time
