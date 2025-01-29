@@ -1,0 +1,5 @@
+google-cloud-aiplatform
+google-cloud-storage
+kfp
+numpy<2
+google-cloud-pipeline-components
