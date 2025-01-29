@@ -18,17 +18,32 @@
 # options:
 #  logging: CLOUD_LOGGING_ONLY
 
+# steps:
+#   - name: 'python:3.9'
+#     id: 'Install Dependencies'
+#     entrypoint: 'pip'
+#     args: ['install', '-r', 'requirements.txt']
+
+#   - name: 'python:3.9'
+#     id: 'Run Pipeline'
+#     entrypoint: 'python'
+#     args: ['pipeline1.py']
+    
+# options:
+#   logging: CLOUD_LOGGING_ONLY
+# timeout: '600s'  # Adjust based on your pipeline's execution time
+
 steps:
   - name: 'python:3.9'
-    id: 'Install Dependencies'
-    entrypoint: 'pip'
-    args: ['install', '-r', 'requirements.txt']
-
-  - name: 'python:3.9'
-    id: 'Run Pipeline'
-    entrypoint: 'python'
-    args: ['pipeline1.py']
+    id: 'Install & Run Pipeline'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        pip install --upgrade pip setuptools wheel &&
+        pip install -r requirements.txt &&
+        python pipeline1.py
     
 options:
   logging: CLOUD_LOGGING_ONLY
-# timeout: '600s'  # Adjust based on your pipeline's execution time
+timeout: '1200s'  # Increase timeout if needed
