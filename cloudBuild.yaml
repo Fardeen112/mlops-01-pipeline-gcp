@@ -13,7 +13,7 @@ steps:
     - 'GOOGLE_CLOUD_PROJECT=involuted-tuner-441406-a9'
 
 substitutions:
-  _PYTHON_FILE: pipeline.py
+  _PYTHON_FILE: pipeline1.py
 
 options:
   logging: CLOUD_LOGGING_ONLY
