@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['cp', '/pipeline1.py', '/workspace/']
+  args: ['storage','cp', '/pipeline1.py', '/workspace/']
 
 - name: 'python:3.9'
   entrypoint: pip
